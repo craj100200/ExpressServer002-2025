@@ -80,14 +80,3 @@ const port = 4000;
 app.listen(port);
 
 
-// Handle 404 errors
-app.use((req, res, next) => {
-    res.status(404).send('Error 404: Not Found!');
-});
-
-// Global error handler
-app.use((err, req, res, next) => {
-    console.error(err.message);
-    const status = err.statusCode || 500;
-    res.status(status).send(err.message);
-});
