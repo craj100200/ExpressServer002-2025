@@ -54,6 +54,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+
+const router = express.Router();
+
 // CREATE Student
 router.post('/students', async (req, res, next) => {
 	try 
