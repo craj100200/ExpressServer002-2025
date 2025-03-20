@@ -51,7 +51,8 @@ mongoose.connect('mongodb+srv://mydbuser:mydbuser@cluster0.hfu9n.mongodb.net/Stu
 // Initialize Express app
 
 app.use(bodyParser.json());
-app.use(bodyParsconst router = express.Router();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 // CREATE Student
 router.post('/students', async (req, res, next) => {
@@ -169,8 +170,7 @@ catch(error)
      //   return next(error);
    // }
 });
-er.urlencoded({ extended: true }));
-app.use(cors());
+
 
 //student.router.js
 //------------------------------------------------------------------------
