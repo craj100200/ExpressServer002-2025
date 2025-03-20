@@ -50,9 +50,6 @@ mongoose.connect('mongodb+srv://mydbuser:mydbuser@cluster0.hfu9n.mongodb.net/Stu
 
 // Initialize Express app
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
 
 app.get('/' , (req,res)=> {res.send("Hello"); });
 
