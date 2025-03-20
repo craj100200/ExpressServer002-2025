@@ -6,49 +6,6 @@ const app= express();
 
 
 
-const Schema = mongoose.Schema;
-
-let studentSchema = new Schema({
-    id: {
-	    type:Number
-    }, 
-    firstName: {
-        type: String
-    },
-    lastName: {
-        type: String
-    },
-    email: {
-        type: String
-    },
-    rollNo: {
-        type: Number
-    },
-    dateOfBirth: {
-	type: String
-    }
-}, {
-    collection: 'students'
-});
-
-// Load environment variables from .env file
-//const { MONGODB_URI, PORT } = process.env;
-const MONGODB_URI = '';
-
-
-// Connecting to MongoDB Database
-mongoose.connect('mongodb+srv://mydbuser:mydbuser@cluster0.hfu9n.mongodb.net/Student?retryWrites=true&w=majority&appName=Cluster0', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-    .then(() => {
-        console.log('Database successfully connected!');
-    })
-    .catch((error) => {
-        console.log('Could not connect to database: ' + error);
-    });
-
-// Initialize Express app
 
 
 app.get('/' , (req,res)=> {res.send("Hello"); });
