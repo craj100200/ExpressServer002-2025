@@ -84,67 +84,6 @@ router.get('/students', async (req, res, next) => {
     	}
 });
 
-// UPDATE Student
-router.route('/students/:id')
-	// Get Single Student
-	.get(async (req, res, next) => {
-        try 
-	{
-        	const data = await Student.findById(req.params.id);
-            	res.json(data);
-        } 
-	catch (error) 
-	{
-            	return next(error);
-        }
-    })
-    // Update Student Data
-	.put(async (req, res, next) => {
-	   	try 
-		{ 
-			// Find the Student by id and update
-			const updatedStudent = await Student.findOneAndUpdate(
-      				{ id: req.params.id }, // Query criteria
-      				req.body,        // Update data
-      				{ new: true }       // Options: return the updated document
-    				);
-
-    			res.json(updatedStudent);
-    			if (updatedStudent) 
-			{
-			      console.log('Student updated successfully:', updatedStudent);
-			} 
-			else 
-			{
-	      		console.log('Student not found');
-    			}
-	    	} 
-	    	catch(error) 
-		{ 
-			return next(error);
-	    	} 
-
-     	//   try {
-            //const data = await Student.findByIdAndUpdate(req.params.id, {
-       //     const data = await Student.find( {id : req.params.id }, {
-       //         $set: req.body,
-       //     }, { new: true });
-       //     res.json(data);
-       //     console.log("Student updated successfully!");
-       // } catch (error) {
-	//	console.log("Error "); console.log(error);
-        //    return next(error);
-        //}
-    });
-
-
-//student.router.js
-//------------------------------------------------------------------------
-
-//------------------------------------------------------------------------
-
-
-
 app.get('/' , (req,res)=> {res.send("Hello"); });
 
 app.get('/ping' , (req, res)=> {res.send("pong");});
