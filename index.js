@@ -57,19 +57,6 @@ app.use(cors());
 
 const router = express.Router();
 
-// CREATE Student
-router.post('/students', async (req, res, next) => {
-	try 
-	{
-		const data = await Student.create(req.body);
-        	console.log(data);
-        	res.json(data);
-	} 
-	catch (error) 
-	{
-        	return next(error);
-    	}
-});
 
 // READ Students
 router.get('/students', async (req, res, next) => {
