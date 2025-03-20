@@ -137,43 +137,6 @@ router.route('/students/:id')
         //}
     });
 
-// DELETE Student
-router.delete('/students/:id', async (req, res, next) => {
-
-try 
-{ 
-	const deletedStudent = await Student.findOneAndDelete(
-     		{ id: req.params.id }// Query criteria
-    	);
-
-
-    	if (deletedStudent) 
-	{
-    		res.status(200).json(deletedStudent);
-      		console.log('Student deleted successfully:', deletedStudent);
-    	} 
-	else 
-	{
-		res.status(404).send("Student not found");
-      		console.log('Student not found');
-    	} 
-} 
-catch(error) 
-{
-	console.log("Error deleting Student record");console.log(error);
-	return next(error);
-} 
-
-    //try {
-      //  const data = await Student.findByIdAndRemove(req.params.id);
-        //res.status(200).json({
-          //  msg: data,
-       // });
-   // } catch (error) {
-     //   return next(error);
-   // }
-});
-
 
 //student.router.js
 //------------------------------------------------------------------------
