@@ -54,23 +54,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-
-const router = express.Router();
-
-
-// READ Students
-router.get('/students', async (req, res, next) => {
-	try 
-	{
-        	const data = await Student.find();
-        	res.json(data);
-    	} 
-	catch (error) 
-	{
-        	return next(error);
-    	}
-});
-
 app.get('/' , (req,res)=> {res.send("Hello"); });
 
 app.get('/ping' , (req, res)=> {res.send("pong");});
