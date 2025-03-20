@@ -68,7 +68,7 @@ router.post('/students', async (req, res, next) => {
 });
 
 // READ Students
-router.get('/', async (req, res, next) => {
+router.get('/students', async (req, res, next) => {
 	try 
 	{
         	const data = await Student.find();
